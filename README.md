@@ -18,7 +18,6 @@ UFC_KnowledgeGraph_Project/
 ├── ufc-ontology.ttl                 # Ontology (classes, properties, restrictions)
 ├── ufc-instances.ttl                # Instances (fighters, fights, events, venues…)
 ├── ufc_analysis.ipynb               # Notebook for querying + visualization
-├── Final_Project_Report_Group69.pdf # Full project report
 └── README.md                        # This file
 ```
 
