@@ -1,0 +1,247 @@
+@prefix ex: <http://example.org/ufc#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology ;
+   owl:imports ex:
+ ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://example.org/ufc#eventDate
+ex:eventDate rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#eventName
+ex:eventName rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#fightOrder
+ex:fightOrder rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#fighterName
+ex:fighterName rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#hasMethod
+ex:hasMethod rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#hasOutcome
+ex:hasOutcome rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#hasParticipant
+ex:hasParticipant rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#hasWinner
+ex:hasWinner rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#heldAt
+ex:heldAt rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#inCity
+ex:inCity rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#inCountry
+ex:inCountry rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#inDivision
+ex:inDivision rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#isTitleBout
+ex:isTitleBout rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#organizedBy
+ex:organizedBy rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#partOfEvent
+ex:partOfEvent rdf:type owl:AnnotationProperty .
+
+
+###  http://example.org/ufc#wonFight
+ex:wonFight rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.org/ufc#Organisation
+ex:Organisation rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.org/ufc#event-UFC-257
+ex:event-UFC-257 rdf:type owl:NamedIndividual ,
+                          dbo:SportsEvent ,
+                          ex:Event ;
+                 ex:eventDate "2021-01-23"^^xsd:date ;
+                 ex:eventName "UFC 257" ;
+                 ex:organizedBy ex:org-UFC .
+
+
+###  http://example.org/ufc#event-UFC-262
+ex:event-UFC-262 rdf:type owl:NamedIndividual ,
+                          dbo:SportsEvent ,
+                          ex:Event ;
+                 ex:eventDate "2021-05-15"^^xsd:date ;
+                 ex:eventName "UFC 262" ;
+                 ex:organizedBy ex:org-UFC .
+
+
+###  http://example.org/ufc#event-UFC-264
+ex:event-UFC-264 rdf:type owl:NamedIndividual ,
+                          dbo:SportsEvent ,
+                          ex:Event ;
+                 ex:eventDate "2021-07-10"^^xsd:date ;
+                 ex:eventName "UFC 264" ;
+                 ex:organizedBy ex:org-UFC .
+
+
+###  http://example.org/ufc#fight-UFC-257-1-Conor-McGregor-Dustin-Poirier
+ex:fight-UFC-257-1-Conor-McGregor-Dustin-Poirier rdf:type owl:NamedIndividual ,
+                                                          ex:Fight ;
+                                                 ex:fightOrder 1 ;
+                                                 ex:hasMethod ex:method-TKO ;
+                                                 ex:hasOutcome "win" ;
+                                                 ex:hasParticipant ex:fighter-Conor-McGregor ,
+                                                                   ex:fighter-Dustin-Poirier ;
+                                                 ex:hasWinner ex:fighter-Dustin-Poirier ;
+                                                 ex:heldAt ex:venue-Etihad-Arena-Abu-Dhabi ;
+                                                 ex:isTitleBout "false"^^xsd:boolean ;
+                                                 ex:partOfEvent ex:event-UFC-257 .
+
+
+###  http://example.org/ufc#fight-UFC-262-1-Charles-Oliveira-Michael-Chandler
+ex:fight-UFC-262-1-Charles-Oliveira-Michael-Chandler rdf:type owl:NamedIndividual ,
+                                                              ex:Fight ;
+                                                     ex:fightOrder 1 ;
+                                                     ex:hasMethod ex:method-TKO ;
+                                                     ex:hasOutcome "win" ;
+                                                     ex:hasParticipant ex:fighter-Charles-Oliveira ,
+                                                                       ex:fighter-Michael-Chandler ;
+                                                     ex:hasWinner ex:fighter-Charles-Oliveira ;
+                                                     ex:heldAt ex:venue-Toyota-Center-Houston ;
+                                                     ex:isTitleBout "true"^^xsd:boolean ;
+                                                     ex:partOfEvent ex:event-UFC-262 .
+
+
+###  http://example.org/ufc#fight-UFC-264-1-Conor-McGregor-Dustin-Poirier
+ex:fight-UFC-264-1-Conor-McGregor-Dustin-Poirier rdf:type owl:NamedIndividual ,
+                                                          ex:Fight ;
+                                                 ex:fightOrder 1 ;
+                                                 ex:hasMethod ex:method-TKO ;
+                                                 ex:hasOutcome "win" ;
+                                                 ex:hasParticipant ex:fighter-Conor-McGregor ,
+                                                                   ex:fighter-Dustin-Poirier ;
+                                                 ex:hasWinner ex:fighter-Dustin-Poirier ;
+                                                 ex:heldAt ex:venue-T-Mobile-Arena-Las-Vegas ;
+                                                 ex:isTitleBout "false"^^xsd:boolean ;
+                                                 ex:partOfEvent ex:event-UFC-264 .
+
+
+###  http://example.org/ufc#fighter-Charles-Oliveira
+ex:fighter-Charles-Oliveira rdf:type owl:NamedIndividual ,
+                                     dbo:Athlete ,
+                                     ex:Fighter ;
+                            ex:fighterName "Charles Oliveira" ;
+                            ex:inDivision "Lightweight" ;
+                            ex:wonFight ex:fight-UFC-262-1-Charles-Oliveira-Michael-Chandler .
+
+
+###  http://example.org/ufc#fighter-Conor-McGregor
+ex:fighter-Conor-McGregor rdf:type owl:NamedIndividual ,
+                                   dbo:Athlete ,
+                                   ex:Fighter ;
+                          ex:fighterName "Conor McGregor" ;
+                          ex:inDivision "Lightweight" .
+
+
+###  http://example.org/ufc#fighter-Dustin-Poirier
+ex:fighter-Dustin-Poirier rdf:type owl:NamedIndividual ,
+                                   dbo:Athlete ,
+                                   ex:Fighter ;
+                          ex:fighterName "Dustin Poirier" ;
+                          ex:inDivision "Lightweight" ;
+                          ex:wonFight ex:fight-UFC-257-1-Conor-McGregor-Dustin-Poirier ,
+                                      ex:fight-UFC-264-1-Conor-McGregor-Dustin-Poirier .
+
+
+###  http://example.org/ufc#fighter-Michael-Chandler
+ex:fighter-Michael-Chandler rdf:type owl:NamedIndividual ,
+                                     dbo:Athlete ,
+                                     ex:Fighter ;
+                            ex:fighterName "Michael Chandler" ;
+                            ex:inDivision "Lightweight" .
+
+
+###  http://example.org/ufc#method-KO
+ex:method-KO rdf:type owl:NamedIndividual ,
+                      ex:Method ;
+             rdfs:label "KO" .
+
+
+###  http://example.org/ufc#method-TKO
+ex:method-TKO rdf:type owl:NamedIndividual ,
+                       ex:Method ;
+              rdfs:label "TKO" .
+
+
+###  http://example.org/ufc#method-UD
+ex:method-UD rdf:type owl:NamedIndividual ,
+                      ex:Method ;
+             rdfs:label "Unanimous Decision" .
+
+
+###  http://example.org/ufc#org-UFC
+ex:org-UFC rdf:type owl:NamedIndividual ,
+                    dbo:Organisation ,
+                    ex:Organisation ;
+           rdfs:label "Ultimate Fighting Championship" .
+
+
+###  http://example.org/ufc#venue-Etihad-Arena-Abu-Dhabi
+ex:venue-Etihad-Arena-Abu-Dhabi rdf:type owl:NamedIndividual ,
+                                         dbo:Place ,
+                                         ex:Venue ;
+                                ex:inCity "Abu Dhabi" ;
+                                ex:inCountry "United Arab Emirates" .
+
+
+###  http://example.org/ufc#venue-T-Mobile-Arena-Las-Vegas
+ex:venue-T-Mobile-Arena-Las-Vegas rdf:type owl:NamedIndividual ,
+                                           dbo:Place ,
+                                           ex:Venue ;
+                                  ex:inCity "Las Vegas" ;
+                                  ex:inCountry "United States" .
+
+
+###  http://example.org/ufc#venue-Toyota-Center-Houston
+ex:venue-Toyota-Center-Houston rdf:type owl:NamedIndividual ,
+                                        dbo:Place ,
+                                        ex:Venue ;
+                               ex:inCity "Houston" ;
+                               ex:inCountry "United States" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,65 @@
+@prefix ex:    <http://example.org/ufc#> .
+@prefix dbo:   <http://dbpedia.org/ontology/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+ex: a owl:Ontology .
+
+# Classes (with DBpedia alignment)
+ex:Fighter a owl:Class ; rdfs:subClassOf dbo:Athlete .
+ex:Fight a owl:Class ; rdfs:subClassOf dbo:SportsEvent .
+ex:Event a owl:Class ; rdfs:subClassOf dbo:SportsEvent .
+ex:Venue a owl:Class ; rdfs:subClassOf dbo:Place .
+ex:Division a owl:Class ; rdfs:subClassOf dbo:SportsLeague .
+ex:Organization a owl:Class ; rdfs:subClassOf dbo:Organisation .
+ex:Outcome a owl:Class ; rdfs:subClassOf dbo:Result .
+ex:Method a owl:Class ; rdfs:subClassOf dbo:SportCompetitionResult .
+ex:Referee a owl:Class ; rdfs:subClassOf dbo:Person .
+ex:Judge a owl:Class ; rdfs:subClassOf dbo:Person .
+ex:City a owl:Class ; rdfs:subClassOf dbo:PopulatedPlace .
+ex:Country a owl:Class ; rdfs:subClassOf dbo:Country .
+
+# Disjointness (minimal)
+ex:Fighter owl:disjointWith ex:Venue, ex:Event .
+ex:Outcome owl:disjointWith ex:Method .
+
+# Object properties
+ex:hasParticipant a owl:ObjectProperty ; rdfs:domain ex:Fight ; rdfs:range ex:Fighter .
+ex:hasWinner a owl:ObjectProperty, owl:FunctionalProperty ; rdfs:domain ex:Fight ; rdfs:range ex:Fighter ; owl:inverseOf ex:wonFight .
+ex:wonFight a owl:ObjectProperty ; rdfs:domain ex:Fighter ; rdfs:range ex:Fight .
+ex:hasMethod a owl:ObjectProperty, owl:FunctionalProperty ; rdfs:domain ex:Fight ; rdfs:range ex:Method .
+ex:hasOutcome a owl:ObjectProperty ; rdfs:domain ex:Fight ; rdfs:range ex:Outcome .
+ex:inDivision a owl:ObjectProperty ; rdfs:domain ex:Fight ; rdfs:range ex:Division .
+ex:partOfEvent a owl:ObjectProperty ; rdfs:domain ex:Fight ; rdfs:range ex:Event ; owl:inverseOf ex:hasFight .
+ex:hasFight a owl:ObjectProperty ; rdfs:domain ex:Event ; rdfs:range ex:Fight .
+ex:heldAt a owl:ObjectProperty, owl:FunctionalProperty ; rdfs:domain ex:Event ; rdfs:range ex:Venue .
+ex:inCity a owl:ObjectProperty ; rdfs:domain ex:Venue ; rdfs:range ex:City .
+ex:inCountry a owl:ObjectProperty, owl:TransitiveProperty ; rdfs:domain ex:City ; rdfs:range ex:Country .
+ex:organizedBy a owl:ObjectProperty ; rdfs:domain ex:Event ; rdfs:range ex:Organization .
+
+# Data properties
+ex:fighterName a owl:DatatypeProperty ; rdfs:domain ex:Fighter ; rdfs:range xsd:string .
+ex:eventName a owl:DatatypeProperty ; rdfs:domain ex:Event ; rdfs:range xsd:string .
+ex:eventDate a owl:DatatypeProperty ; rdfs:domain ex:Event ; rdfs:range xsd:date .
+ex:fightOrder a owl:DatatypeProperty ; rdfs:domain ex:Fight ; rdfs:range xsd:integer .
+ex:isTitleBout a owl:DatatypeProperty ; rdfs:domain ex:Fight ; rdfs:range xsd:boolean .
+
+# Key restrictions (as anonymous restrictions)
+ex:Fight rdfs:subClassOf
+  [ a owl:Restriction ; owl:onProperty ex:hasParticipant ; owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ; owl:onClass ex:Fighter ],
+  [ a owl:Restriction ; owl:onProperty ex:hasWinner ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass ex:Fighter ],
+  [ a owl:Restriction ; owl:onProperty ex:hasMethod ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass ex:Method ],
+  [ a owl:Restriction ; owl:onProperty ex:hasOutcome ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass ex:Outcome ],
+  [ a owl:Restriction ; owl:onProperty ex:inDivision ; owl:someValuesFrom ex:Division ],
+  [ a owl:Restriction ; owl:onProperty ex:partOfEvent ; owl:someValuesFrom ex:Event ],
+  [ a owl:Restriction ; owl:onProperty ex:isTitleBout ; owl:cardinality "1"^^xsd:nonNegativeInteger ],
+  [ a owl:Restriction ; owl:onProperty ex:fightOrder ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] .
+
+ex:Event rdfs:subClassOf
+  [ a owl:Restriction ; owl:onProperty ex:eventDate ; owl:cardinality "1"^^xsd:nonNegativeInteger ],
+  [ a owl:Restriction ; owl:onProperty ex:heldAt ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass ex:Venue ],
+  [ a owl:Restriction ; owl:onProperty ex:organizedBy ; owl:someValuesFrom ex:Organization ],
+  [ a owl:Restriction ; owl:onProperty ex:hasFight ; owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass ex:Fight ] .
