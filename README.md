@@ -1,7 +1,6 @@
 # UFC Knowledge Graph Project
-**Group 69 – Knowledge and Data (VU Amsterdam)**  
-**Authors:** Barış Kaban, Göktuğ Yıldırım, Danila Popuşoi 
-**Project Title:** UFC Knowledge Graph and Analysis Pipeline  
+**Knowledge and Data (VU Amsterdam)**  
+**Authors:** Barış Kaban, Göktuğ Yıldırım, Danila Popuşoi  
 
 ---
 
