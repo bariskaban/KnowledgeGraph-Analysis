@@ -84,7 +84,7 @@ LIMIT 50
 2. Generated plots include:  
    - Distribution of win methods  
    - Title vs non-title bout ratio per year or event  
-   - Top fighters by wins (if present in instances)
+   - Top fighters by wins 
 
 ---
 
