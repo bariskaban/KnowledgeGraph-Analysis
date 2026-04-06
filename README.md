@@ -9,7 +9,7 @@ This project builds a knowledge graph for the Ultimate Fighting Championship (UF
 The ontology models Fighters, Fights, Events, Venues, Divisions, Methods, and Outcomes and aligns them with DBpedia classes (e.g., `dbo:Athlete`, `dbo:SportsEvent`, `dbo:Place`) for interoperability.  
 Data are integrated from RDF (DBpedia) and non-RDF (Kaggle CSV) sources, converted into RDF triples, and analyzed/visualized in a Jupyter notebook.
 
-> A full research report is included in this repository: [`project_report.pdf`](./project_report.pdf)
+> A full research report is included in this repository: [`project_report.pdf`](./Final_Project_Report_Group69.pdf)
 
 ---
 
