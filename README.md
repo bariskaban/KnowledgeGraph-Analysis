@@ -1,7 +1,6 @@
 # UFC Knowledge Graph Project
-**Group 69 – Knowledge and Data (VU Amsterdam)**  
-**Authors:** Barış Kaban, Göktuğ Yıldırım, Danila Popuşoi 
-**Project Title:** UFC Knowledge Graph and Analysis Pipeline  
+**Knowledge and Data (VU Amsterdam)**  
+**Authors:** Barış Kaban, Göktuğ Yıldırım, Danila Popuşoi  
 
 ---
 
@@ -9,6 +8,8 @@
 This project builds a knowledge graph for the Ultimate Fighting Championship (UFC).  
 The ontology models Fighters, Fights, Events, Venues, Divisions, Methods, and Outcomes and aligns them with DBpedia classes (e.g., `dbo:Athlete`, `dbo:SportsEvent`, `dbo:Place`) for interoperability.  
 Data are integrated from RDF (DBpedia) and non-RDF (Kaggle CSV) sources, converted into RDF triples, and analyzed/visualized in a Jupyter notebook.
+
+> A full research report is included in this repository: [`project_report.pdf`](./project_report.pdf)
 
 ---
 
@@ -18,7 +19,6 @@ UFC_KnowledgeGraph_Project/
 ├── ufc-ontology.ttl                 # Ontology (classes, properties, restrictions)
 ├── ufc-instances.ttl                # Instances (fighters, fights, events, venues…)
 ├── ufc_analysis.ipynb               # Notebook for querying + visualization
-├── Final_Project_Report_Group69.pdf # Full project report
 └── README.md                        # This file
 ```
 
@@ -86,7 +86,7 @@ LIMIT 50
 2. Generated plots include:  
    - Distribution of win methods  
    - Title vs non-title bout ratio per year or event  
-   - Top fighters by wins (if present in instances)
+   - Top fighters by wins 
 
 ---
 
