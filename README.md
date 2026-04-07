@@ -17,6 +17,7 @@ Data are integrated from RDF (DBpedia) and non-RDF (Kaggle CSV) sources, convert
 ```
 KnowledgeGraph-Analysis/
 ├── Final_Project_Report_Group69.pdf # Project Report
+├── LICENSE                          # MIT License
 ├── ufc-ontology.ttl                 # Ontology (classes, properties, restrictions)
 ├── ufc-instances.ttl                # Instances (fighters, fights, events, venues…)
 ├── ufc_analysis.ipynb               # Notebook for querying + visualization
@@ -99,4 +100,4 @@ LIMIT 50
 
 ## 9) License
 Built for the **Vrije Universiteit Amsterdam – Knowledge and Data** course (Fall 2025).  
-For academic/educational use only.
+This project is licensed under the MIT License. For academic/educational use only.
