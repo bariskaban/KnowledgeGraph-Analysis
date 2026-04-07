@@ -15,7 +15,8 @@ Data are integrated from RDF (DBpedia) and non-RDF (Kaggle CSV) sources, convert
 
 ## 2) Repository Structure
 ```
-UFC_KnowledgeGraph_Project/
+KnowledgeGraph-Analysis/
+├── Final_Project_Report_Group69.pdf # Project Report
 ├── ufc-ontology.ttl                 # Ontology (classes, properties, restrictions)
 ├── ufc-instances.ttl                # Instances (fighters, fights, events, venues…)
 ├── ufc_analysis.ipynb               # Notebook for querying + visualization
